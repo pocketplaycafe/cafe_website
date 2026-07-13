@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ===== Backgrounds (PP Black family) ===== */
+  --color-pp-black: #0F0F0F;
+  --color-pp-deep: #050505;
+  --color-pp-card: #1A1A1A;
+  --color-pp-hover: #252525;
+
+  /* ===== Brand: Luxury Gold ===== */
+  --color-gold: #D4AF37;
+  --color-gold-light: #F1D98A;
+  --color-gold-dark: #A68B28;
+
+  /* ===== Accent: Billiard Red ===== */
+  --color-red: #C0392B;
+  --color-red-light: #E74C3C;
+
+  /* ===== Text ===== */
+  --color-text-primary: #FFFFFF;
+  --color-text-body: #B0B0B0;
+  --color-text-muted: #666666;
+
+  /* ===== Fonts (next/font exposes --font-oswald / --font-lato) ===== */
+  --font-display: var(--font-oswald), 'Oswald', sans-serif;
+  --font-body: var(--font-lato), 'Lato', sans-serif;
+
+  /* ===== Radius (sharp, pool-table corners) ===== */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  /* ===== Easing (strong custom curves — built-ins are too weak) ===== */
+  --ease-lux: cubic-bezier(0.23, 1, 0.32, 1);      /* strong ease-out */
+  --ease-in-out-lux: cubic-bezier(0.77, 0, 0.175, 1); /* strong ease-in-out */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);     /* iOS-like drawer */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===== Keyframes (premium: fade, lift, scale, slide) ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes liftUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes smoothSlide {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 15px rgba(212,175,55,.2); }
+  50% { box-shadow: 0 0 30px rgba(212,175,55,.45); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility animate-fade-in { animation: fadeIn .8s var(--ease-lux) forwards; }
+@utility animate-lift { animation: liftUp .7s var(--ease-lux) forwards; }
+@utility animate-scale-in { animation: scaleIn .5s var(--ease-lux) forwards; }
+@utility animate-marquee { animation: smoothSlide 28s linear infinite; }
+@utility animate-pulse-gold { animation: pulseGold 2.4s ease-in-out infinite; }
+
+/* ===== Gold gradient text ===== */
+@utility text-gold {
+  background: linear-gradient(135deg, #F1D98A, #D4AF37, #A68B28);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Glows (no gray shadows) ===== */
+@utility gold-glow { box-shadow: 0 0 15px rgba(212,175,55,.2); }
+@utility gold-glow-lg { box-shadow: 0 0 30px rgba(212,175,55,.4); }
+@utility red-glow { box-shadow: 0 0 15px rgba(192,57,43,.3); }
+@utility card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,.5); }
+
+/* ===== Glass card (dark, gold-tinted border) ===== */
+@utility glass {
+  background: rgba(26,26,26,.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(212,175,55,.14);
+}
+
+/* ===== Dotted luxury texture ===== */
+@utility pattern-gold {
+  background-image: radial-gradient(rgba(212,175,55,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-pp-black);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+  ::selection {
+    background-color: var(--color-gold);
+    color: #0F0F0F;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== Layout helpers ===== */
+.container-lux {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ===== Scroll reveal (premium fade + lift) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .6s var(--ease-lux), transform .6s var(--ease-lux);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
