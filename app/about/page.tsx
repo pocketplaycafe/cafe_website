@@ -40,7 +40,7 @@ export default function AboutPage() {
             <Reveal delay={120}>
               <p className="text-text-body leading-relaxed mb-5">
                 Welcome to <span className="text-white font-semibold">Pocket Play Cafe</span> — your
-                neighbourhood&apos;s favourite hangout in Bihar Sharif. We bring the thrill of gaming
+                neighbourhood&apos;s favourite hangout in Patna City. We bring the thrill of gaming
                 together with the joy of great food under one roof.
               </p>
               <p className="text-text-body leading-relaxed mb-8">

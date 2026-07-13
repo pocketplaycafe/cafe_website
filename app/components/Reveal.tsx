@@ -6,11 +6,13 @@ export default function Reveal({
   children,
   className = '',
   delay = 0,
+  clip = false,
   as: Tag = 'div',
 }: {
   children: ReactNode
   className?: string
   delay?: number
+  clip?: boolean
   as?: 'div' | 'section' | 'li' | 'article'
 }) {
   const ref = useRef<HTMLElement | null>(null)
@@ -37,7 +39,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`reveal ${className}`}
+      className={`${clip ? 'reveal-clip' : 'reveal'} ${className}`}
       style={style}
     >
       {children}

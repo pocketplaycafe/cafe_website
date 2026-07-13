@@ -28,7 +28,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md glass mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse-gold" />
             <span className="text-xs font-medium text-text-body uppercase tracking-[0.2em]">
-              Now Open · Bihar Sharif
+              Now Open · Patna City
             </span>
           </div>
 
@@ -49,16 +49,35 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-lift">
             <Link
               href="/cafe"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 gold-glow-lg hover:bg-gold-light"
+              className="press w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 gold-glow-lg hover:bg-gold-light"
             >
               Explore Menu
             </Link>
             <Link
               href="/game"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 hover:bg-gold/10 hover:gold-glow"
+              className="press w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 hover:bg-gold/10 hover:gold-glow"
             >
               View Games
             </Link>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-7 animate-lift">
+            <a
+              href={brand.swiggy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="press w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-[#FC8019]/50 text-[#FC8019] font-bold uppercase tracking-wide text-sm px-7 py-3 hover:bg-[#FC8019] hover:text-white"
+            >
+              Order on Swiggy
+            </a>
+            <a
+              href={brand.zomato}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="press w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md border border-[#E23744]/50 text-[#E23744] font-bold uppercase tracking-wide text-sm px-7 py-3 hover:bg-[#E23744] hover:text-white"
+            >
+              Order on Zomato
+            </a>
           </div>
 
           <div className="flex items-center justify-center gap-8 sm:gap-14 mt-16">
@@ -111,7 +130,7 @@ export default function HomePage() {
               <Reveal
                 key={f.t}
                 delay={i * 60}
-                className="group p-6 rounded-md bg-pp-card border border-gold/12 text-center hover:gold-glow hover:-translate-y-1 transition-all duration-300"
+                className="group lift p-6 rounded-md bg-pp-card border border-gold/12 text-center hover:gold-glow"
               >
                 <h3 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-1">{f.t}</h3>
                 <p className="text-xs text-text-muted">{f.d}</p>
@@ -148,7 +167,7 @@ export default function HomePage() {
                   <img
                     src={g.image}
                     alt={g.title}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500 ease-lux"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pp-deep via-pp-deep/40 to-transparent" />
                 </div>

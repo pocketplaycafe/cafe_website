@@ -130,3 +130,54 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* ===== Image clip reveal (premium: wipe up from below) ===== */
+.reveal-clip {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease-lux), clip-path .9s var(--ease-in-out-lux), transform .7s var(--ease-lux);
+  will-change: clip-path, transform, opacity;
+}
+.reveal-clip.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0% 0);
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-clip { opacity: 1; clip-path: none; transform: none; transition: none; }
+}
+
+@layer components {
+  /* Instant press feedback — never animate :active slower than the press itself.
+     Gated so touch devices get the tap without a lingering 97% squish. */
+  .press {
+    transition: transform 140ms var(--ease-lux),
+                background-color 240ms var(--ease-lux),
+                box-shadow 240ms var(--ease-lux),
+                color 240ms var(--ease-lux),
+                border-color 240ms var(--ease-lux);
+    will-change: transform;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .press:hover { transform: translateY(-2px); }
+  }
+  .press:active { transform: scale(0.97); }
+
+  /* Card lift on hover — gated to fine pointers, strong easing */
+  .lift {
+    transition: transform 320ms var(--ease-lux),
+                box-shadow 320ms var(--ease-lux),
+                border-color 320ms var(--ease-lux);
+    will-change: transform;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .lift:hover { transform: translateY(-4px); }
+  }
+
+  /* Tap feedback for icon/round controls */
+  .tap {
+    transition: transform 120ms var(--ease-lux), background-color 200ms var(--ease-lux);
+  }
+  .tap:active { transform: scale(0.92); }
+}

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Pocket Play Cafe',
   },
   description:
-    'A premium gaming lounge & cafe in Bihar Sharif. PS4 & PS5, Pool, Snooker, Table Tennis, Carrom and a full kitchen of burgers, pizza, momos, shakes & more.',
+    'A premium gaming lounge & cafe in Patna City. PS4 & PS5, Pool, Snooker, Table Tennis, Carrom and a full kitchen of burgers, pizza, momos, shakes & more.',
   icons: {
     icon: '/logo.jpeg',
     shortcut: '/logo.jpeg',

@@ -7,7 +7,7 @@ import { brand } from '../data'
 export const metadata = { title: 'Contact' }
 
 const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(
-  'Pocket Play Cafe, Trimurti Chowk, Bihar Sharif'
+  'Pocket Play Cafe, Trimurti Chowk, Patna City'
 )}&output=embed`
 
 export default function ContactPage() {

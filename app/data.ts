@@ -6,8 +6,10 @@ export const brand = {
   phone: '+91 95994 42499',
   phoneHref: 'https://wa.me/919599442499',
   address:
-    '1st Floor, above Grand Biryani, Dira Par, Trimurti Chowk, Opposite Mangal Talab, Near Baal Leela, Bihar Sharif, Bihar.',
-  maps: 'https://www.google.com/maps/search/?api=1&query=Pocket+Play+Cafe+Bihar+Sharif',
+    '1st Floor, above Grand Biryani, Dira Par, Trimurti Chowk, Opposite Mangal Talab, Near Baal Leela, Patna City, Bihar.',
+  maps: 'https://www.google.com/maps/search/?api=1&query=Pocket+Play+Cafe+Patna+City',
+  swiggy: '#',
+  zomato: '#',
 }
 
 export const games: {
