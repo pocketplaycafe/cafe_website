@@ -4,7 +4,18 @@ import BackToTop from '../components/BackToTop'
 import Footer from '../components/Footer'
 import { brand, games } from '../data'
 
-export const metadata = { title: 'Gaming Zone' }
+export const metadata = {
+  title: 'Gaming Zone — PS5, Pool & Snooker in Patna City',
+  description:
+    'Play PS4 & PS5, professional Pool and Snooker, Table Tennis, Carrom and Big Screen gaming at Pocket Play Cafe, the top gaming lounge in Patna City.',
+  alternates: { canonical: '/game' },
+  openGraph: {
+    title: 'Gaming Zone — PS5, Pool & Snooker in Patna City | Pocket Play Cafe',
+    description:
+      'Play PS4 & PS5, Pool, Snooker, Table Tennis and more at Patna City’s top gaming lounge.',
+    url: '/game',
+  },
+}
 
 export default function GamePage() {
   const featured = games.filter((g) => g.featured)

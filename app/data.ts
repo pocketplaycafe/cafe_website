@@ -3,6 +3,8 @@
 export const brand = {
   name: 'Pocket Play Cafe',
   tagline: 'Good Food • Good Mood',
+  owner: 'Rahul Kumar',
+  ownerTitle: 'Founder & Owner',
   phone: '+91 95994 42499',
   phoneHref: 'https://wa.me/919599442499',
   address:

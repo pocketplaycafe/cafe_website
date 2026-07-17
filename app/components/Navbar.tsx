@@ -9,7 +9,6 @@ const navLinks = [
   { href: '/cafe', label: 'Menu' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
