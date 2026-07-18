@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { brand } from '../data'
+import FlowingMenu from './FlowingMenu'
+import './FlowingMenu.css'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -13,7 +15,16 @@ const navLinks = [
   { href: '/about', label: 'About' },
 ]
 
+const flowingItems = [
+  { link: '/', text: 'Home', image: '/gallery/g1.jpeg' },
+  { link: '/game', text: 'Gaming', image: '/gallery/g5.jpeg' },
+  { link: '/cafe', text: 'Menu', image: '/menu/burgers/veg_burger.jpeg' },
+  { link: '/gallery', text: 'Gallery', image: '/gallery/g3.jpeg' },
+  { link: '/about', text: 'About', image: '/gallery/g2.jpeg' },
+]
+
 export default function Navbar() {
+  const router = useRouter()
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -176,12 +187,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div
+        <div
           id="mobile-nav-drawer"
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className={`fixed inset-0 z-[60] bg-pp-deep/98 backdrop-blur-2xl flex flex-col transition-transform duration-500 ease-drawer ${
+          className={`fixed inset-0 z-[60] bg-pp-deep/98 backdrop-blur-2xl flex flex-col overflow-hidden transition-transform duration-500 ease-drawer ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -200,35 +211,20 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
-          <div className="flex-1 flex flex-col justify-center gap-2 px-8 sm:px-12 lg:px-16 relative">
-            {navLinks.map((link, i) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`group/link relative font-display font-bold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-wider py-4 transition-colors duration-300 active:scale-[0.98] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold/60 focus-visible:outline-offset-2 ${
-                  isActive(link.href) ? 'text-gold' : 'text-text-muted hover:text-gold'
-                }`}
-              >
-                <span
-                  className={`inline-block transition-[opacity,transform] duration-500 ease-drawer ${
-                    menuOpen
-                      ? 'opacity-100 translate-x-0'
-                      : 'opacity-0 -translate-x-8'
-                  }`}
-                  style={{ transitionDelay: menuOpen ? `${i * 60}ms` : '0ms' }}
-                >
-                  {link.label}
-                </span>
-                <span
-                  className={`absolute -bottom-px left-1/2 -translate-x-1/2 h-px bg-gold/60 transition-[width,opacity] duration-300 ${
-                    isActive(link.href)
-                      ? 'w-4/5 opacity-100'
-                      : 'w-0 opacity-0 group-hover/link:w-3/5 group-hover/link:opacity-100'
-                  }`}
-                />
-              </a>
-            ))}
+          <div className="flex-1 relative overflow-hidden">
+            <FlowingMenu
+              items={flowingItems}
+              speed={12}
+              textColor="#ffffff"
+              bgColor="transparent"
+              marqueeBgColor="#D4AF37"
+              marqueeTextColor="#0F0F10"
+              borderColor="rgba(212,175,55,0.12)"
+              onNavigate={(href) => {
+                setMenuOpen(false)
+                router.push(href)
+              }}
+            />
           </div>
           <div className="px-8 sm:px-12 lg:px-16 pb-10">
               <a

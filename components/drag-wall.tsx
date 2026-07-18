@@ -12,23 +12,53 @@ export default function DragWall() {
   }));
 
   return (
-    <DraggableCardContainer className="relative flex min-h-[70vh] w-full items-center justify-center overflow-clip rounded-2xl border border-gold/10 bg-pp-bg/60 py-12">
-      <p className="pointer-events-none absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 px-6 text-center text-xl font-bold uppercase tracking-wide text-gold/60 md:text-2xl">
-        Shuffle the wall — drag a moment around the lounge
-      </p>
-      {items.map((item) => (
-        <DraggableCardBody key={item.title} className={item.className}>
-          <img
-            src={item.image}
-            alt={item.title}
-            className="pointer-events-none relative z-10 h-56 w-56 rounded-md object-cover"
-          />
-          <h3 className="mt-3 text-center text-sm font-semibold uppercase tracking-wide text-gold">
-            Pocket Play Cafe
-          </h3>
-        </DraggableCardBody>
-      ))}
-    </DraggableCardContainer>
+    <>
+      {/* Desktop / tablet-large: the interactive draggable wall. */}
+      <div className="hidden lg:block">
+        <DraggableCardContainer className="relative flex min-h-[70vh] w-full items-center justify-center overflow-clip rounded-2xl border border-gold/10 bg-pp-bg/60 py-12">
+          <p className="pointer-events-none absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 px-6 text-center text-xl font-bold uppercase tracking-wide text-gold/60 md:text-2xl">
+            Shuffle the wall — drag a moment around the lounge
+          </p>
+          {items.map((item) => (
+            <DraggableCardBody key={item.title} className={item.className}>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="pointer-events-none relative z-10 h-56 w-56 rounded-md object-cover"
+              />
+              <h3 className="mt-3 text-center text-sm font-semibold uppercase tracking-wide text-gold">
+                Pocket Play Cafe
+              </h3>
+            </DraggableCardBody>
+          ))}
+        </DraggableCardContainer>
+      </div>
+
+      {/* Mobile / tablet: a calm, swipeable, equal card grid (no overlap, no clipping). */}
+      <div className="lg:hidden">
+        <p className="mb-6 text-center text-base font-bold uppercase tracking-wide text-gold/60">
+          Moments from the lounge
+        </p>
+        <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {items.map((item) => (
+            <div
+              key={item.title}
+              className="relative w-56 shrink-0 snap-center overflow-hidden rounded-lg border border-gold/20 bg-pp-card p-4 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-56 w-full rounded-md object-cover"
+                loading="lazy"
+              />
+              <h3 className="mt-3 text-center text-sm font-semibold uppercase tracking-wide text-gold">
+                Pocket Play Cafe
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 

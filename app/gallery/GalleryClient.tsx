@@ -35,7 +35,7 @@ export default function GalleryPageClient() {
 
   return (
     <>
-      <section className="relative pt-32 pb-10 px-4 sm:px-6 overflow-hidden">
+      <section className="relative pt-28 pb-12 px-4 sm:px-6 overflow-hidden">
         <div className="absolute -top-10 right-0 w-[460px] h-[460px] bg-gold/10 rounded-full blur-[150px]" />
         <div className="container-lux relative text-center">
           <Reveal>

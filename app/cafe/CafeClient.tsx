@@ -115,7 +115,7 @@ export default function CafePageClient() {
 
         <StickyCategories categories={categories} active={active} onSelect={handleCategory} />
 
-        <main className="flex-1 px-4 sm:px-6 py-12">
+        <main className="flex-1 px-3 sm:px-6 py-8 sm:py-12">
           <div className="container-lux space-y-20">
             {q === '' && active === 'all' && featuredItems.length > 0 && (
               <FeaturedSection items={featuredItems} />
