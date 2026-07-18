@@ -265,10 +265,57 @@ export const menu: MenuCategory[] = [
   },
 ]
 
-export const galleryImages: string[] = Array.from(
-  { length: 31 },
-  (_, i) => `/gallery/g${i + 1}.jpeg`
-)
+export type GalleryImage = {
+  id: string
+  title: string
+  category: string
+  src: string
+  alt: string
+}
+
+// Canonical gallery source. Every entry maps to a real file in /public.
+// New photos dropped into public/gallery or public/new_image are registered
+// here (see the scan in the gallery-redesign task). Order is preserved.
+const galleryFiles: string[] = [
+  // Existing lounge photography. g9.jpeg is missing from /public, so it is
+  // excluded; g1..g8 and g10..g31 are all present on disk.
+  ...Array.from({ length: 31 }, (_, i) => `/gallery/g${i + 1}.jpeg`).filter(
+    (p) => p !== '/gallery/g9.jpeg'
+  ),
+  // Newly added photos (public/new_image)
+  ...[
+    'photo_1_2026-07-18_16-51-57.jpg',
+    'photo_2_2026-07-18_16-51-57.jpg',
+    'photo_3_2026-07-18_16-51-57.jpg',
+    'photo_4_2026-07-18_16-51-57.jpg',
+    'photo_5_2026-07-18_16-51-57.jpg',
+    'photo_6_2026-07-18_16-51-57.jpg',
+    'photo_7_2026-07-18_16-51-57.jpg',
+    'photo_8_2026-07-18_16-51-57.jpg',
+    'photo_9_2026-07-18_16-51-57.jpg',
+    'photo_13_2026-07-18_16-51-57.jpg',
+    'photo_14_2026-07-18_16-51-57.jpg',
+    'photo_17_2026-07-18_16-51-57.jpg',
+    'photo_19_2026-07-18_16-51-57.jpg',
+    'photo_21_2026-07-18_16-51-57.jpg',
+    'photo_23_2026-07-18_16-51-57.jpg',
+    'photo_24_2026-07-18_16-51-57.jpg',
+    'photo_25_2026-07-18_16-51-57.jpg',
+    'photo_26_2026-07-18_16-51-58.jpg',
+    'photo_27_2026-07-18_16-51-58.jpg',
+    'photo_28_2026-07-18_16-51-58.jpg',
+    'photo_29_2026-07-18_16-51-58.jpg',
+    'photo_30_2026-07-18_16-51-58.jpg',
+  ].map((f) => `/new_image/${f}`),
+]
+
+export const galleryImages: GalleryImage[] = galleryFiles.map((src, i) => ({
+  id: `g${i + 1}`,
+  title: `Pocket Play Cafe — Moment ${i + 1}`,
+  category: 'Moments',
+  src,
+  alt: `Pocket Play Cafe gallery photo ${i + 1}`,
+}))
 
 export const highlights = [
   'PS4 & PS5 GAMING',

@@ -58,6 +58,7 @@ export default function GalleryPageClient() {
           </Reveal>
         </div>
         <MasonryGallery images={galleryImages} onSelect={setOpen} />
+            
       </section>
 
       {/* Lightbox */}
@@ -87,12 +88,12 @@ export default function GalleryPageClient() {
         {open !== null && (
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
-              src={galleryImages[open]}
-              alt={`Pocket Play Cafe gallery photo ${open + 1}`}
+              src={galleryImages[open].src}
+              alt={galleryImages[open].alt}
               fill
               unoptimized
               sizes="100vw"
-              className="object-contain max-w-full max-h-[85vh] rounded-md card-shadow"
+              className="object-contain max-w-full max-h-[85vh] rounded-2xl card-shadow"
             />
           </div>
         )}
