@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Reveal from '../components/Reveal'
+import ScrollReveal from '../components/ScrollReveal'
 import BackToTop from '../components/BackToTop'
 import Footer from '../components/Footer'
 import { brand, highlights } from '../data'
@@ -121,16 +122,38 @@ export default function AboutPage() {
 
             <Reveal delay={120}>
               <span className="eyebrow">About Us</span>
-              <h2 className="heading text-3xl sm:text-4xl mb-5">More Than A Cafe</h2>
-              <p className="text-text-body leading-relaxed mb-5">
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={5}
+                blurStrength={10}
+                containerClassName="mb-5"
+              >
+                More Than A Cafe
+              </ScrollReveal>
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={3}
+                blurStrength={6}
+                containerClassName="mb-5 scroll-reveal-body"
+                textClassName="!text-base !font-normal !leading-relaxed !text-text-body"
+              >
                 Sink a frame of pool, run a snooker drill, or just sit with friends over burgers,
                 momos and shakes. Everything on the menu is made fresh, and priced so you can stay
                 for more than one round.
-              </p>
-              <p className="text-text-body leading-relaxed mb-8">
+              </ScrollReveal>
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={3}
+                blurStrength={6}
+                containerClassName="mb-8 scroll-reveal-body"
+                textClassName="!text-base !font-normal !leading-relaxed !text-text-body"
+              >
                 Run by {brand.owner}, Pocket Play Cafe is Patna City&apos;s go-to spot for gamers,
                 families and friend groups who want a place that&apos;s actually worth the visit.
-              </p>
+              </ScrollReveal>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {info.map((it) => (
