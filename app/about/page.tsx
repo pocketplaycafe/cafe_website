@@ -48,19 +48,19 @@ export default function AboutPage() {
         <div className="container-lux relative">
           <Reveal className="text-center max-w-3xl mx-auto">
             {/* Logo + Brand */}
-            <div className="inline-flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-md overflow-hidden border border-gold/30 shrink-0">
-                <img src="/logo.jpeg" alt="Pocket Play Cafe" className="w-full h-full object-cover" />
-              </div>
-              <div className="text-left">
-                <span className="font-display font-bold text-2xl text-white block tracking-wider uppercase leading-none">
-                  Pocket Play
-                </span>
-                <span className="block text-[11px] font-medium tracking-[0.25em] text-gold uppercase">
-                  Cafe
-                </span>
-              </div>
-            </div>
+        <div className="inline-flex items-center gap-4 mb-6 lift">
+          <div className="w-16 h-16 rounded-md overflow-hidden border border-gold/30 shrink-0">
+            <img src="/logo.jpeg" alt="Pocket Play Cafe" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="text-left">
+            <span className="font-display font-bold text-2xl text-white block tracking-wider uppercase leading-none">
+              Pocket Play
+            </span>
+            <span className="block text-[11px] font-medium tracking-[0.25em] text-gold uppercase">
+              Cafe
+            </span>
+          </div>
+        </div>
 
             <span className="eyebrow">Our Story &amp; Contact</span>
             <h1 className="heading text-4xl sm:text-5xl md:text-6xl mb-4">Where Food Meets Fun</h1>
@@ -231,7 +231,7 @@ export default function AboutPage() {
               href={brand.phoneHref}
               target="_blank"
               rel="noopener"
-              className="inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 gold-glow-lg hover:bg-gold-light"
+              className="inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"
             >
               Message on WhatsApp
             </a>
@@ -251,7 +251,7 @@ export default function AboutPage() {
               <Reveal
                 key={h}
                 delay={i * 50}
-                className="p-5 rounded-md bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-1 transition-all duration-300"
+                className="p-5 rounded-md bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-1 transition-[transform,background-color,box-shadow,border-color] duration-300"
               >
                 <span className="block w-1.5 h-1.5 rounded-full bg-gold mb-3" />
                 <h3 className="font-display font-bold text-white uppercase tracking-wide text-sm">{h}</h3>
@@ -272,13 +272,13 @@ export default function AboutPage() {
                 href={brand.phoneHref}
                 target="_blank"
                 rel="noopener"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 gold-glow-lg hover:bg-gold-light"
+                className="press lift w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"
               >
                 Book a Table
               </a>
               <Link
                 href="/cafe"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 hover:bg-gold/10 hover:gold-glow"
+                className="press lift w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 hover:bg-gold/10 hover:gold-glow"
               >
                 See Full Menu
               </Link>

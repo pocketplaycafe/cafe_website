@@ -29,11 +29,11 @@ export default function GamePage() {
         <div className="container-lux relative">
           <Reveal className="max-w-2xl">
             <span className="eyebrow">The Gaming Zone</span>
-            <h1 className="heading text-4xl sm:text-5xl md:text-6xl mb-4">Play. Compete. Repeat.</h1>
-            <p className="text-text-body leading-relaxed">
-              From a professional pool table to next-gen consoles, Pocket Play Cafe is built for
-              players. Grab your crew, pick a game, and let the good times roll.
-            </p>
+<h1 className="heading lift text-4xl sm:text-5xl md:text-6xl mb-4">Play. Compete. Repeat.</h1>
+          <p className="text-text-body leading-relaxed lift">
+            From a professional pool table to next-gen consoles, Pocket Play Cafe is built for
+            players. Grab your crew, pick a game, and let the good times roll.
+          </p>
           </Reveal>
         </div>
       </section>
@@ -52,7 +52,8 @@ export default function GamePage() {
                   <img
                     src={g.image}
                     alt={g.title}
-                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-[transform,opacity] duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pp-black via-pp-black/40 to-transparent" />
                 </div>
@@ -68,7 +69,7 @@ export default function GamePage() {
                       href={brand.phoneHref}
                       target="_blank"
                       rel="noopener"
-                      className="inline-flex items-center gap-2 bg-gold text-pp-black font-bold uppercase text-xs tracking-wide rounded-md px-5 py-2.5 transition-all duration-300 hover:bg-gold-light"
+                      className="inline-flex items-center gap-2 bg-gold text-pp-black font-bold uppercase text-xs tracking-wide rounded-md px-5 py-2.5 transition-[transform,background-color,box-shadow,border-color] duration-300 hover:bg-gold-light"
                     >
                       Book Now
                     </a>
@@ -92,13 +93,14 @@ export default function GamePage() {
               <Reveal
                 key={g.key}
                 delay={i * 60}
-                className="group relative rounded-md overflow-hidden bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-1 transition-all duration-300"
+                className="group relative rounded-md overflow-hidden bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-1 transition-[transform,background-color,box-shadow,border-color] duration-300"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={g.image}
                     alt={g.title}
-                    className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    loading="lazy"
+                    className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-[transform,opacity] duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-pp-black via-pp-black/40 to-transparent" />
                 </div>
@@ -127,13 +129,13 @@ export default function GamePage() {
                 href={brand.phoneHref}
                 target="_blank"
                 rel="noopener"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 gold-glow-lg hover:bg-gold-light"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"
               >
                 Book a Table
               </a>
               <Link
                 href="/cafe"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-all duration-300 hover:bg-gold/10 hover:gold-glow"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-gold/40 text-gold font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 hover:bg-gold/10 hover:gold-glow"
               >
                 Order Food
               </Link>

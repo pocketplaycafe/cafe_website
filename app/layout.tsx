@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Oswald, Lato } from 'next/font/google'
+import { Oswald, Outfit } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import Script from 'next/script'
@@ -11,11 +11,11 @@ const oswald = Oswald({
   weight: ['300', '400', '500', '600', '700'],
 })
 
-const lato = Lato({
+const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-lato',
   display: 'swap',
-  weight: ['300', '400', '700', '900'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pocketplaycafe.com'
@@ -146,7 +146,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${oswald.variable} ${lato.variable} scroll-smooth`}>
+    <html lang="en" className={`${oswald.variable} ${outfit.variable} scroll-smooth`}>
       <head>
         <Script
           id="local-business-schema"

@@ -21,9 +21,11 @@
   --color-text-body: #B0B0B0;
   --color-text-muted: #666666;
 
-  /* ===== Fonts (next/font exposes --font-oswald / --font-lato) ===== */
+  /* ===== Fonts (next/font exposes --font-oswald / --font-lato) =====
+     Oswald is a condensed display sans — brand-appropriate for luxury caps.
+     Outfit is a modern geometric sans for body — premium, clean, pairs with Oswald. */
   --font-display: var(--font-oswald), 'Oswald', sans-serif;
-  --font-body: var(--font-lato), 'Lato', sans-serif;
+  --font-body: var(--font-lato), 'Outfit', sans-serif;
 
   /* ===== Radius (sharp, pool-table corners) ===== */
   --radius-sm: 2px;
@@ -97,11 +99,16 @@
     background-color: var(--color-pp-black);
     color: var(--color-text-primary);
     font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.005em;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-display);
+    font-feature-settings: 'ss01';
   }
   ::selection {
     background-color: var(--color-gold);
@@ -116,6 +123,31 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+/* ===== Eyebrow (small-caps section label) ===== */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+/* ===== Heading (display-family section titles) ===== */
+.heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  line-height: 1.02;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+/* ===== Tabular figures for data / stats ===== */
+.tnum { font-variant-numeric: tabular-nums; }
 
 /* ===== Scroll reveal (premium fade + lift) ===== */
 .reveal {
@@ -150,7 +182,7 @@
 
 @layer components {
   /* Instant press feedback — never animate :active slower than the press itself.
-     Gated so touch devices get the tap without a lingering 97% squish. */
+      Gated so touch devices get the tap without a lingering 97% squish. */
   .press {
     transition: transform 140ms var(--ease-lux),
                 background-color 240ms var(--ease-lux),
@@ -180,4 +212,114 @@
     transition: transform 120ms var(--ease-lux), background-color 200ms var(--ease-lux);
   }
   .tap:active { transform: scale(0.92); }
+
+  /* ===== Buttons (Pocket Play) =====
+     Brand signature: the primary CTA is a "break shot" — a gold felt button
+     with a small cue-dot (the 8-ball) that travels left→right on hover,
+     encoding the pool-table world. No constant glow; the dot carries the life. */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    padding: 0.95rem 2.1rem;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 140ms var(--ease-lux),
+                background-color 240ms var(--ease-lux),
+                box-shadow 240ms var(--ease-lux),
+                color 240ms var(--ease-lux),
+                border-color 240ms var(--ease-lux);
+    will-change: transform;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { transform: translateY(-2px); }
+  }
+  .btn:active { transform: scale(0.97); }
+
+  /* Primary — gold felt */
+  .btn-primary {
+    background: var(--color-gold);
+    color: #0F0F0F;
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 6px 22px rgba(212,175,55,.18);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      background: var(--color-gold-light);
+      border-color: var(--color-gold-light);
+      box-shadow: 0 10px 30px rgba(212,175,55,.30);
+    }
+  }
+
+  /* The traveling 8-ball cue-dot (break shot) */
+  .btn-primary .cue-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #0F0F0F;
+    box-shadow: 0 0 0 1.5px rgba(15,15,15,.25);
+    transition: transform 360ms var(--ease-lux), opacity 240ms var(--ease-lux);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover .cue-dot { transform: translateX(7px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary .cue-dot { transition: none; }
+  }
+
+  /* Secondary — disciplined gold outline, no glow */
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-gold);
+    border: 1px solid color-mix(in srgb, var(--color-gold) 42%, transparent);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-ghost:hover {
+      background: color-mix(in srgb, var(--color-gold) 12%, transparent);
+      border-color: var(--color-gold);
+    }
+  }
+
+  /* Small variant (order buttons) */
+  .btn-sm {
+    padding: 0.7rem 1.6rem;
+    font-size: 0.78rem;
+  }
+
+  /* Delivery CTAs — keep each platform's own color through hover */
+  .btn-swiggy {
+    color: #FC8019;
+    border-color: rgba(252,128,25,.5);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-swiggy:hover {
+      background: #FC8019;
+      border-color: #FC8019;
+      color: #fff;
+    }
+  }
+  .btn-zomato {
+    color: #E23744;
+    border-color: rgba(226,55,68,.5);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-zomato:hover {
+      background: #E23744;
+      border-color: #E23744;
+      color: #fff;
+    }
+  }
 }

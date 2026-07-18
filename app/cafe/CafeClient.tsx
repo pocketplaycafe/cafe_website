@@ -1,12 +1,25 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Reveal from '../components/Reveal'
 import BackToTop from '../components/BackToTop'
 import Footer from '../components/Footer'
 import { menu } from '../data'
 
 type Cat = { key: string; label: string }
+
+function PreservedScroll() {
+  useEffect(() => {
+    const keyInput = (e: KeyboardEvent) => {
+      if (e.key === 'Meta' || e.key === 'Control') {
+        e.preventDefault()
+      }
+    }
+    window.addEventListener('keydown', keyInput)
+    return () => window.removeEventListener('keydown', keyInput)
+  }, [])
+  return null
+}
 
 export default function CafePageClient() {
   const [active, setActive] = useState<string>('all')
@@ -93,7 +106,7 @@ export default function CafePageClient() {
                   setActive(c.key)
                   setQuery('')
                 }}
-                className={`px-4 py-2 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wide border transition-all duration-200 ${
+                 className={`px-4 py-2 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wide border transition-colors duration-200 ${
                   active === c.key && !q
                     ? 'bg-gold text-pp-black border-transparent'
                     : 'border-gold/20 text-text-body hover:text-white hover:border-gold/40'
@@ -117,7 +130,7 @@ export default function CafePageClient() {
                     {cat.items.map((it) => (
                       <div
                         key={it.item}
-                        className="group relative overflow-hidden rounded-md bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-0.5 transition-all duration-300"
+                        className="group relative overflow-hidden rounded-md bg-pp-card border border-gold/12 hover:gold-glow hover:-translate-y-0.5 transition-[transform,background-color,box-shadow,border-color] duration-300"
                       >
                         <div className="aspect-[4/3] overflow-hidden bg-pp-hover/40">
                           {it.image ? (
@@ -125,7 +138,7 @@ export default function CafePageClient() {
                               src={it.image}
                               alt={`${it.item} — ${cat.label} at Pocket Play Cafe`}
                               loading="lazy"
-                              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-[transform,opacity] duration-500"
                             />
                           ) : (
                             <div className="w-full h-full pattern-gold flex items-center justify-center">
@@ -167,3 +180,5 @@ export default function CafePageClient() {
     </>
   )
 }
+
+export { PreservedScroll }
