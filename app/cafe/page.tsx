@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import CafePageClient, { PreservedScroll } from './CafeClient'
+import CafePageClient from './CafeClient'
 
 export const metadata: Metadata = {
   title: 'Menu & Food Prices — Pocket Play Cafe Patna',
@@ -23,10 +23,5 @@ export const metadata: Metadata = {
 }
 
 export default function CafePage() {
-  return (
-    <>
-      <PreservedScroll />
-      <CafePageClient />
-    </>
-  )
+  return <CafePageClient />
 }

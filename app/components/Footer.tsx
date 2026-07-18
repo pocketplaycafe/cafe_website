@@ -1,4 +1,6 @@
 import { brand } from '../data'
+import { MessageCircle, Star, MapPin, Clock, Phone } from 'lucide-react'
+import { FaInstagram, FaFacebookF } from 'react-icons/fa'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -15,6 +17,12 @@ const popular = [
   'Cold Coffee',
   'Garlic Bread',
   'Oreo Shake',
+]
+
+const socials = [
+  { icon: FaInstagram, href: '#', label: 'Instagram' },
+  { icon: FaFacebookF, href: '#', label: 'Facebook' },
+  { icon: MessageCircle, href: brand.phoneHref, label: 'WhatsApp' },
 ]
 
 export default function Footer() {
@@ -40,21 +48,33 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-text-body leading-relaxed max-w-md mb-6">
-              Where great food meets great games. A premium gaming lounge & cafe in Bihar
-              Sharif — Pool, Snooker, PS4 & PS5, and a kitchen that never misses.
+              Where great food meets great games. A premium gaming lounge & cafe in Patna
+              City — Pool, Snooker, PS4 & PS5, and a kitchen that never misses.
             </p>
 
-            <div className="inline-flex items-center gap-3 rounded-md bg-pp-card border border-gold/12 px-4 py-3 mb-5">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-gold/30 shrink-0">
-                <img src="/logo.jpeg" alt={brand.owner} className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <span className="block font-display font-bold text-sm text-gold uppercase tracking-wide">
-                  {brand.owner}
-                </span>
-                <span className="block text-[11px] text-text-muted uppercase tracking-wider">
-                  {brand.ownerTitle}
-                </span>
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <a
+                href={brand.maps}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 rounded-md bg-pp-card border border-gold/12 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-gold hover:text-gold-light hover:border-gold/40 transition-colors"
+              >
+                <Star className="w-4 h-4" fill="currentColor" />
+                4.8 Google Rating
+              </a>
+              <div className="flex items-center gap-2">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target={s.href.startsWith('http') ? '_blank' : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-10 h-10 grid place-items-center rounded-md bg-pp-card border border-gold/12 text-text-body hover:text-gold hover:border-gold/40 transition-colors"
+                  >
+                    <s.icon className="w-[18px] h-[18px]" strokeWidth={1.75} />
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -107,7 +127,10 @@ export default function Footer() {
           {/* Contact — Address */}
           <div className="rounded-md bg-pp-card border border-gold/12 p-5">
             <h4 className="font-display font-bold text-sm text-gold uppercase tracking-wider mb-3">Visit Us</h4>
-            <p className="text-xs text-text-body leading-relaxed">{brand.address}</p>
+            <p className="text-xs text-text-body leading-relaxed inline-flex gap-2">
+              <MapPin className="w-4 h-4 text-gold/70 shrink-0 mt-0.5" />
+              {brand.address}
+            </p>
             <a
               href={brand.maps}
               target="_blank"
@@ -121,16 +144,20 @@ export default function Footer() {
           {/* Contact — Hours & Phone */}
           <div className="rounded-md bg-pp-card border border-gold/12 p-5">
             <h4 className="font-display font-bold text-sm text-gold uppercase tracking-wider mb-3">Reach Us</h4>
-            <div className="flex justify-between text-xs mb-2">
-              <span className="text-text-body">Monday – Sunday</span>
+            <div className="flex justify-between items-center text-xs mb-3">
+              <span className="inline-flex items-center gap-2 text-text-body">
+                <Clock className="w-4 h-4 text-gold/70" />
+                Monday – Sunday
+              </span>
               <span className="text-white font-semibold">10 AM – 11 PM</span>
             </div>
             <a
               href={brand.phoneHref}
               target="_blank"
               rel="noopener"
-              className="inline-flex items-center gap-2 text-gold font-display font-bold text-sm hover:text-gold-light transition-colors mt-1"
+              className="inline-flex items-center gap-2 text-gold font-display font-bold text-sm hover:text-gold-light transition-colors"
             >
+              <Phone className="w-4 h-4" />
               {brand.phone}
             </a>
           </div>

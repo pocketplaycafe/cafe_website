@@ -2,117 +2,59 @@ import Link from 'next/link'
 import Reveal from './components/Reveal'
 import BackToTop from './components/BackToTop'
 import Footer from './components/Footer'
-import { brand, highlights, games } from './data'
+import HomeHero from './components/HomeHero'
+import HomeStats from './components/HomeStats'
+import { brand, games, highlights } from './data'
+
+import {
+  Gamepad2,
+  Crosshair,
+  Trophy,
+  Table2,
+  LayoutGrid,
+  Tv,
+  Star,
+  Users,
+  Clock,
+  Wallet,
+} from 'lucide-react'
+
+const features = [
+  { icon: Gamepad2, t: 'PS4 & PS5', d: 'Console gaming' },
+  { icon: Crosshair, t: 'Pro Pool', d: 'Pro tables' },
+  { icon: Trophy, t: 'Snooker', d: '2 & 4 players' },
+  { icon: Table2, t: 'Table Tennis', d: 'Quick matches' },
+  { icon: LayoutGrid, t: 'Carrom', d: 'All ages' },
+  { icon: Tv, t: 'Big Screen', d: 'Live viewing' },
+]
+
+// Curated preview metadata for the gaming zone cards
+const gameMeta: Record<string, { players: string; duration: string }> = {
+  pool: { players: '2 Players', duration: 'Per Frame' },
+  snooker: { players: '2 – 4 Players', duration: 'Per Frame' },
+  ps5: { players: '1 – 4 Players', duration: 'Per Hour' },
+}
 
 export default function HomePage() {
   return (
     <>
-      {/* ============ HERO ============ */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/gallery/g1.jpeg"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-        >
-          <source src="/gallery/vid1.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-pp-black/85 via-pp-black/70 to-pp-black" />
-        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-gold/10 rounded-full blur-[140px]" />
-        <div className="absolute -bottom-32 -right-24 w-[480px] h-[480px] bg-gold/10 rounded-full blur-[150px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-pp-black/85 via-pp-black/70 to-pp-black" />
-        <div className="absolute inset-0 pattern-gold opacity-40" />
-        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-gold/10 rounded-full blur-[140px]" />
-        <div className="absolute -bottom-32 -right-24 w-[480px] h-[480px] bg-gold/10 rounded-full blur-[150px]" />
-
-          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-24">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md glass mb-8 animate-fade-in">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse-gold" />
-              <span className="text-xs font-medium text-text-body uppercase tracking-[0.2em]">
-                Now Open · Patna City
-              </span>
-            </div>
-
-            <h1 className="font-display font-bold uppercase tracking-[0.05em] leading-[0.92] text-5xl sm:text-7xl md:text-8xl lg:text-9xl mb-6 lift">
-              <span className="text-white">Pocket</span>
-              <span className="block text-gold">Play Cafe</span>
-            </h1>
-
-            <p className="font-display uppercase tracking-[0.35em] text-text-body text-sm sm:text-base md:text-lg mb-6 animate-lift">
-              Good Food <span className="text-gold">•</span> Good Mood
-            </p>
-
-            <p className="text-text-body text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed animate-lift">
-              A premium gaming lounge where great food meets great games. Pool, Snooker, PS4 & PS5,
-              and a kitchen built for cravings — all under one roof.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-lift">
-              <Link
-                href="/cafe"
-                className="btn btn-primary w-full sm:w-auto"
-              >
-                <span className="cue-dot" aria-hidden="true" />
-                Explore Menu
-              </Link>
-              <Link
-                href="/game"
-                className="btn btn-ghost w-full sm:w-auto"
-              >
-                View Games
-              </Link>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-7 lift">
-              <a
-                href={brand.swiggy}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-swiggy btn-sm w-full sm:w-auto"
-              >
-                Order on Swiggy
-              </a>
-              <a
-                href={brand.zomato}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-zomato btn-sm w-full sm:w-auto"
-              >
-                Order on Zomato
-              </a>
-            </div>
-
-            <div className="flex items-center justify-center gap-8 sm:gap-14 mt-16 lift">
-              <div className="text-center">
-                <div className="font-display font-bold text-3xl text-gold">7+</div>
-                <div className="text-[10px] uppercase tracking-wider text-text-muted mt-1">Experiences</div>
-              </div>
-              <div className="w-px h-10 bg-white/10" />
-              <div className="text-center">
-                <div className="font-display font-bold text-3xl text-gold">50+</div>
-                <div className="text-[10px] uppercase tracking-wider text-text-muted mt-1">Menu Items</div>
-              </div>
-              <div className="w-px h-10 bg-white/10" />
-              <div className="text-center">
-                <div className="font-display font-bold text-3xl text-gold tnum">PS5</div>
-                <div className="text-[10px] uppercase tracking-wider text-text-muted mt-1">Current-Gen</div>
-              </div>
-            </div>
-          </div>
-      </section>
+      <HomeHero />
 
       {/* ============ MARQUEE ============ */}
       <div className="bg-pp-deep border-y border-gold/10 py-4 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...highlights, ...highlights].map((h, i) => (
-            <span key={i} className="mx-8 text-sm font-display font-bold uppercase tracking-wider text-gold/80">
+            <span
+              key={i}
+              className="mx-8 text-sm font-display font-bold uppercase tracking-wider text-gold/80"
+            >
               {h}
             </span>
           ))}
         </div>
       </div>
+
+      <HomeStats />
 
       {/* ============ WHY VISIT ============ */}
       <section className="py-20 px-4 sm:px-6 bg-pp-black">
@@ -123,20 +65,18 @@ export default function HomePage() {
           </Reveal>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[
-              { t: 'PS4 & PS5', d: 'Console gaming' },
-              { t: 'Pro Pool', d: 'Pro tables' },
-              { t: 'Snooker', d: '2 & 4 players' },
-              { t: 'Table Tennis', d: 'Quick matches' },
-              { t: 'Carrom', d: 'All ages' },
-              { t: 'Big Screen', d: 'Live viewing' },
-            ].map((f, i) => (
+            {features.map((f, i) => (
               <Reveal
                 key={f.t}
                 delay={i * 60}
-                className="group lift p-6 rounded-md bg-pp-card border border-gold/12 text-center hover:gold-glow"
+                className="group lift p-6 rounded-md bg-pp-card border border-gold/12 text-center hover:border-gold/40 hover:gold-glow"
               >
-                <h3 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-1">{f.t}</h3>
+                <div className="mx-auto mb-4 w-12 h-12 rounded-md grid place-items-center bg-gold/10 text-gold group-hover:bg-gold group-hover:text-pp-black transition-colors duration-300">
+                  <f.icon className="w-6 h-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-display font-bold text-white uppercase tracking-wide text-sm mb-1">
+                  {f.t}
+                </h3>
                 <p className="text-xs text-text-muted">{f.d}</p>
               </Reveal>
             ))}
@@ -154,36 +94,71 @@ export default function HomePage() {
             </div>
             <Link
               href="/game"
-              className="text-gold font-bold uppercase tracking-wide text-sm hover:text-gold-light transition-colors"
+              className="group inline-flex items-center gap-2 text-gold font-bold uppercase tracking-wide text-sm hover:text-gold-light transition-colors"
             >
-              All Games →
+              All Games
+              <span className="transition-transform duration-300 ease-lux group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {games.slice(0, 3).map((g, i) => (
-              <Reveal
-                key={g.key}
-                delay={i * 80}
-                className="group relative rounded-md overflow-hidden bg-pp-card border border-gold/12"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={g.image}
-                    alt={g.title}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500 ease-lux"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-pp-deep via-pp-deep/40 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="inline-block px-3 py-1 rounded-md bg-gold/15 text-gold text-[10px] font-bold uppercase tracking-wider mb-2">
-                    {g.tag}
-                  </span>
-                  <h3 className="font-display font-bold text-2xl text-white uppercase tracking-wide">{g.title}</h3>
-                  <p className="text-sm text-text-body mt-1">{g.price}</p>
-                </div>
-              </Reveal>
-            ))}
+            {games.slice(0, 3).map((g, i) => {
+              const meta = gameMeta[g.key]
+              return (
+                <Reveal
+                  key={g.key}
+                  delay={i * 80}
+                  className="group relative rounded-md overflow-hidden bg-pp-card border border-gold/12 hover:border-gold/40 transition-colors duration-300"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={g.image}
+                      alt={g.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500 ease-lux"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-pp-deep via-pp-deep/40 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="inline-block px-3 py-1 rounded-md bg-gold/15 text-gold text-[10px] font-bold uppercase tracking-wider mb-2">
+                      {g.tag}
+                    </span>
+                    <h3 className="font-display font-bold text-2xl text-white uppercase tracking-wide">
+                      {g.title}
+                    </h3>
+                    {meta && (
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-[11px] uppercase tracking-wider text-text-muted">
+                        <span className="inline-flex items-center gap-1.5">
+                          <Users className="w-3.5 h-3.5 text-gold/70" />
+                          {meta.players}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-gold/70" />
+                          {meta.duration}
+                        </span>
+                      </div>
+                    )}
+                    <div className="mt-3 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 text-sm text-text-body">
+                        <Wallet className="w-4 h-4 text-gold/70" />
+                        {g.price}
+                      </span>
+                      <Link
+                        href="/game"
+                        className="group/cta inline-flex items-center gap-1 text-gold font-bold uppercase tracking-wide text-xs hover:text-gold-light transition-colors"
+                      >
+                        Details
+                        <span className="transition-transform duration-300 ease-lux group-hover/cta:translate-x-1">
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -193,26 +168,32 @@ export default function HomePage() {
         <div className="container-lux">
           <Reveal className="relative overflow-hidden rounded-md border border-gold/20 bg-pp-card p-10 sm:p-16 text-center">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold/10 rounded-full blur-[120px]" />
-            <h2 className="heading text-3xl sm:text-4xl md:text-5xl mb-4">Hungry To Play?</h2>
-            <p className="text-text-body max-w-lg mx-auto mb-8">
-              Book a table, rally your friends, and order from a menu made for gamers.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={brand.phoneHref}
-                target="_blank"
-                rel="noopener"
-                className="btn btn-primary w-full sm:w-auto"
-              >
-                <span className="cue-dot" aria-hidden="true" />
-                Book a Table
-              </a>
-              <Link
-                href="/cafe"
-                className="btn btn-ghost w-full sm:w-auto"
-              >
-                See Full Menu
-              </Link>
+            <div className="absolute inset-0 pattern-gold opacity-30" />
+            <div className="relative">
+              <h2 className="heading text-3xl sm:text-4xl md:text-5xl mb-4">
+                Hungry To Play?
+              </h2>
+              <p className="text-text-body max-w-lg mx-auto mb-8">
+                Book a table, rally your friends, and order from a menu made for gamers.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={brand.phoneHref}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-primary w-full sm:w-auto"
+                >
+                  <span className="cue-dot" aria-hidden="true" />
+                  Book a Table
+                </a>
+                <Link href="/cafe" className="btn btn-ghost w-full sm:w-auto">
+                  See Full Menu
+                </Link>
+              </div>
+              <p className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-text-muted">
+                <Star className="w-4 h-4 text-gold" fill="currentColor" />
+                Rated Patna&apos;s favourite gaming lounge
+              </p>
             </div>
           </Reveal>
         </div>
