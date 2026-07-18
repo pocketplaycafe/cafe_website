@@ -20,7 +20,7 @@ const popular = [
 ]
 
 const socials = [
-  { icon: FaInstagram, href: '#', label: 'Instagram' },
+  { icon: FaInstagram, href: brand.instagram, label: 'Instagram' },
   { icon: FaFacebookF, href: '#', label: 'Facebook' },
   { icon: MessageCircle, href: brand.bookHref, label: 'WhatsApp' },
 ]

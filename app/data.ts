@@ -24,6 +24,7 @@ export const brand = {
     encodeURIComponent(
       `Hi Pocket Play Cafe! I'd like to book the ${game}. Is a table/console free?`
     ),
+  instagram: 'https://instagram.com/pocket_play_cafe',
   maps: 'https://www.google.com/maps/search/?api=1&query=Pocket+Play+Cafe+Patna+City',
   swiggy: '#',
   zomato: '#',
