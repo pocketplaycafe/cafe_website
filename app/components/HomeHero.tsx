@@ -40,16 +40,16 @@ export default function HomeHero() {
         loop
         playsInline
         poster="/gallery/g1.jpeg"
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
         <source src="/gallery/vid1.mp4" type="video/mp4" />
       </video>
 
       {/* Layered cinematic overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-pp-black/85 via-pp-black/70 to-pp-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-pp-black/55 via-pp-black/35 to-pp-black/70" />
       <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-gold/10 rounded-full blur-[140px]" />
       <div className="absolute -bottom-32 -right-24 w-[480px] h-[480px] bg-gold/10 rounded-full blur-[150px]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-pp-black/85 via-pp-black/70 to-pp-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-pp-black/30 via-pp-black/15 to-pp-black/45" />
       <div className="absolute inset-0 pattern-gold opacity-40" />
       <div className="absolute inset-0 noise opacity-[0.05] mix-blend-soft-light" />
 
