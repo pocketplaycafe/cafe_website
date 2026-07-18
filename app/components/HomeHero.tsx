@@ -7,7 +7,6 @@ import { brand } from '../data'
 const trust = [
   'Air-Conditioned Lounge',
   'Family Friendly',
-  'Free Parking',
   'Online Ordering',
   'Now Open · Patna City',
 ]
@@ -84,13 +83,13 @@ export default function HomeHero() {
           Good Food <span className="text-gold">•</span> Good Mood
         </motion.p>
 
-        <motion.p
-          variants={item}
-          className="text-text-body text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed"
-        >
-          A premium gaming lounge where great food meets great games. Pool, Snooker, PS4 & PS5,
-          and a kitchen built for cravings — all under one roof.
-        </motion.p>
+         <motion.p
+           variants={item}
+           className="text-text-body text-sm sm:text-base max-w-xl mx-auto mb-10 leading-relaxed"
+         >
+           Patna City&apos;s spot to play PS4 & PS5, sink a frame of pool, and eat properly good
+           food — burgers, momos, pizza and cold coffee, all under one roof.
+         </motion.p>
 
         <motion.div
           variants={item}
@@ -105,27 +104,31 @@ export default function HomeHero() {
           </Link>
         </motion.div>
 
-        <motion.div
-          variants={item}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-7"
-        >
-          <a
-            href={brand.swiggy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-swiggy btn-sm w-full sm:w-auto"
-          >
-            Order on Swiggy
-          </a>
-          <a
-            href={brand.zomato}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-zomato btn-sm w-full sm:w-auto"
-          >
-            Order on Zomato
-          </a>
-        </motion.div>
+         <motion.div
+           variants={item}
+           className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-7"
+         >
+           {brand.swiggy !== '#' && (
+             <a
+               href={brand.swiggy}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="btn btn-swiggy btn-sm w-full sm:w-auto"
+             >
+               Order on Swiggy
+             </a>
+           )}
+           {brand.zomato !== '#' && (
+             <a
+               href={brand.zomato}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="btn btn-zomato btn-sm w-full sm:w-auto"
+             >
+               Order on Zomato
+             </a>
+           )}
+         </motion.div>
 
         {/* Trust indicators */}
         <motion.ul

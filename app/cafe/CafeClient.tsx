@@ -61,7 +61,6 @@ function enrich(raw: { item: string; price: string; image?: string }): MenuCardD
     image: raw.image,
     desc: DESCRIPTIONS[raw.item],
     badge,
-    rating: 4.6 + ((raw.item.length * 7) % 40) / 100, // stable 4.6–5.0 spread
     featured: FEATURED.has(raw.item),
   }
 }

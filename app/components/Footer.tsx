@@ -22,7 +22,7 @@ const popular = [
 const socials = [
   { icon: FaInstagram, href: '#', label: 'Instagram' },
   { icon: FaFacebookF, href: '#', label: 'Facebook' },
-  { icon: MessageCircle, href: brand.phoneHref, label: 'WhatsApp' },
+  { icon: MessageCircle, href: brand.bookHref, label: 'WhatsApp' },
 ]
 
 export default function Footer() {
@@ -48,8 +48,8 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-text-body leading-relaxed max-w-md mb-6">
-              Where great food meets great games. A premium gaming lounge & cafe in Patna
-              City — Pool, Snooker, PS4 & PS5, and a kitchen that never misses.
+              A premium gaming lounge & cafe in Patna City — Pool, Snooker, PS4 & PS5, and a
+              kitchen that does burgers, momos and cold coffee properly.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mb-5">
@@ -60,7 +60,7 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 rounded-md bg-pp-card border border-gold/12 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-gold hover:text-gold-light hover:border-gold/40 transition-colors"
               >
                 <Star className="w-4 h-4" fill="currentColor" />
-                4.8 Google Rating
+                Rate Us On Google
               </a>
               <div className="flex items-center gap-2">
                 {socials.map((s) => (

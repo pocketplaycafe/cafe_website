@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import BackToTop from '../components/BackToTop'
 import Footer from '../components/Footer'
 import { MasonryGallery } from '@/components/ui/masonry-gallery'
+import DragWall from '@/components/drag-wall'
 import { galleryImages } from '../data'
 
 export default function GalleryPageClient() {
@@ -58,11 +59,27 @@ export default function GalleryPageClient() {
           </Reveal>
         </div>
         <MasonryGallery images={galleryImages} onSelect={setOpen} />
-            
+      </section>
+
+      <section className="pb-20 px-4 sm:px-6">
+        <div className="container-lux">
+          <Reveal className="text-center mb-10">
+            <span className="eyebrow">Play With It</span>
+            <h2 className="heading text-3xl sm:text-4xl">The Drag Wall</h2>
+            <p className="text-text-body max-w-xl mx-auto mt-3">
+              Grab a card and fling it across the lounge. On smaller screens or
+              reduced-motion, the wall sits still for easy browsing.
+            </p>
+          </Reveal>
+          <DragWall />
+        </div>
       </section>
 
       {/* Lightbox */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Photo viewer"
         className={`fixed inset-0 z-[70] bg-pp-deep/97 backdrop-blur-xl flex items-center justify-center p-4 transition-opacity duration-300 ${
           open === null ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}

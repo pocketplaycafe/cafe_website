@@ -3,12 +3,27 @@
 export const brand = {
   name: 'Pocket Play Cafe',
   tagline: 'Good Food • Good Mood',
-  owner: 'Rahul Kumar',
+  owner: 'Md Toufique (Sunny)',
   ownerTitle: 'Founder & Owner',
   phone: '+91 95994 42499',
+  waNumber: '919599442499',
   phoneHref: 'https://wa.me/919599442499',
   address:
     '1st Floor, above Grand Biryani, Dira Par, Trimurti Chowk, Opposite Mangal Talab, Near Baal Leela, Patna City, Bihar.',
+  // Prefilled WhatsApp deep links — a blank chat converts worse than a
+  // templated one. Keep messages short and scannable.
+  bookHref:
+    'https://wa.me/919599442499?text=' +
+    encodeURIComponent(
+      "Hi Pocket Play Cafe! I'd like to book a table. Could you let me know what's available?"
+    ),
+  // Build a prefilled booking message that names the game, so the owner gets
+  // context the moment the chat opens.
+  gameBookHref: (game: string) =>
+    'https://wa.me/919599442499?text=' +
+    encodeURIComponent(
+      `Hi Pocket Play Cafe! I'd like to book the ${game}. Is a table/console free?`
+    ),
   maps: 'https://www.google.com/maps/search/?api=1&query=Pocket+Play+Cafe+Patna+City',
   swiggy: '#',
   zomato: '#',
@@ -80,6 +95,22 @@ export const games: {
     desc: 'Billboard gaming & live sports on the big screen. Match nights, sorted.',
     price: 'Available',
     image: '/gallery/g7.jpeg',
+  },
+  {
+    key: 'airhockey',
+    title: 'Air Hockey',
+    tag: 'Quick Match',
+    desc: 'Fast, frantic table hockey — best of three against your crew between rounds.',
+    price: 'Available',
+    image: '/new_image/photo_24_2026-07-18_16-51-57.jpg',
+  },
+  {
+    key: 'selfie',
+    title: 'Selfie Point',
+    tag: 'Photo Spot',
+    desc: 'A lit selfie corner with the Pocket Play backdrop — tag us and make it yours.',
+    price: 'Free',
+    image: '/new_image/photo_27_2026-07-18_16-51-58.jpg',
   },
 ]
 
@@ -320,6 +351,8 @@ export const galleryImages: GalleryImage[] = galleryFiles.map((src, i) => ({
 export const highlights = [
   'PS4 & PS5 GAMING',
   'PRO POOL & SNOOKER',
+  'AIR HOCKEY',
+  'SELFIE POINT',
   'TABLE TENNIS',
   'CARROM & INDOOR GAMES',
   'BURGERS & PIZZA',

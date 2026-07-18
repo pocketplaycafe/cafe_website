@@ -63,29 +63,39 @@ export default function AboutPage() {
         </div>
 
             <span className="eyebrow">Our Story &amp; Contact</span>
-            <h1 className="heading text-4xl sm:text-5xl md:text-6xl mb-4">Where Food Meets Fun</h1>
+            <h1 className="heading text-4xl sm:text-5xl md:text-6xl mb-4">Play Hard. Eat Properly.</h1>
 
-            {/* Owner */}
-            <div className="inline-flex items-center gap-3 rounded-md bg-pp-card border border-gold/12 px-5 py-3 my-6">
-              <div className="w-11 h-11 rounded-full overflow-hidden border border-gold/30 shrink-0">
-                <img src="/logo.jpeg" alt={brand.owner} className="w-full h-full object-cover" />
-              </div>
-              <div className="text-left">
-                <span className="block font-display font-bold text-sm text-gold uppercase tracking-wide">
+            {/* Owner — Hero Card */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-md bg-pp-card border border-gold/12 px-6 sm:px-8 py-5 my-8 text-left max-w-2xl mx-auto">
+              <div className="text-center sm:text-left">
+                <span className="text-[10px] font-medium tracking-[0.2em] text-gold/60 uppercase block mb-1">Meet the Owner</span>
+                <span className="block font-display font-bold text-lg sm:text-xl text-gold uppercase tracking-wide">
                   {brand.owner}
                 </span>
-                <span className="block text-[11px] text-text-muted uppercase tracking-wider">
+                <span className="block text-xs text-text-muted uppercase tracking-wider mt-0.5">
                   {brand.ownerTitle}
                 </span>
+                <span className="block text-[11px] text-text-body/60 italic mt-2 max-w-xs leading-relaxed">
+                  "Building a space where gaming and great food come together."
+                </span>
+              </div>
+              <div className="relative w-28 h-28 shrink-0">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <clipPath id="heroOwnerBlob" clipPathUnits="objectBoundingBox">
+                      <path d="M0.5,0 C0.65,0,0.78,0.08,0.86,0.2 C0.94,0.32,1,0.46,0.98,0.6 C0.96,0.74,0.88,0.86,0.76,0.93 C0.64,1,0.5,1,0.36,0.96 C0.22,0.92,0.1,0.84,0.04,0.72 C-0.02,0.6,0,0.46,0.06,0.34 C0.12,0.22,0.22,0.12,0.34,0.05 C0.46,-0.02,0.35,0,0.5,0Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div className="absolute inset-0 rounded-[30%_70%_70%_30%/30%_30%_70%_70%] border border-gold/30" />
+                <img
+                  src="/owner/1f5ef596-f0df-4f80-9aae-d8d18650cbf9.jpeg"
+                  alt={brand.owner}
+                  className="w-full h-full object-cover"
+                  style={{ clipPath: 'url(#heroOwnerBlob)' }}
+                />
               </div>
             </div>
-
-            {/* Description + Motto */}
-            <p className="text-text-body leading-relaxed max-w-xl mx-auto">
-              Welcome to <span className="text-white font-semibold">Pocket Play Cafe</span> — your
-              neighbourhood&apos;s favourite hangout in Patna City. We bring the thrill of gaming
-              together with the joy of great food under one roof.
-            </p>
             <p className="text-xs text-gold/80 uppercase tracking-[0.3em] font-display font-bold mt-5">
               {brand.tagline}
             </p>
@@ -113,13 +123,13 @@ export default function AboutPage() {
               <span className="eyebrow">About Us</span>
               <h2 className="heading text-3xl sm:text-4xl mb-5">More Than A Cafe</h2>
               <p className="text-text-body leading-relaxed mb-5">
-                Whether you&apos;re sinking balls on our pool table, showing off your snooker skills,
-                or just chilling with friends over burgers, momos and shakes — there&apos;s something
-                for everyone. Everything is made fresh, with love, at prices that won&apos;t break the bank.
+                Sink a frame of pool, run a snooker drill, or just sit with friends over burgers,
+                momos and shakes. Everything on the menu is made fresh, and priced so you can stay
+                for more than one round.
               </p>
               <p className="text-text-body leading-relaxed mb-8">
-                Run by {brand.owner}, Pocket Play Cafe is built to be the city&apos;s go-to spot for
-                gamers, families, students and friend groups who want good food and good moods.
+                Run by {brand.owner}, Pocket Play Cafe is Patna City&apos;s go-to spot for gamers,
+                families and friend groups who want a place that&apos;s actually worth the visit.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -136,6 +146,54 @@ export default function AboutPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ MEET THE OWNER ============ */}
+      <section className="py-16 px-4 sm:px-6">
+        <div className="container-lux">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Reveal>
+              <span className="eyebrow">Behind the Cafe</span>
+              <h2 className="heading text-3xl sm:text-4xl mb-5">Meet The Owner</h2>
+              <p className="text-text-body leading-relaxed mb-4">
+                Pocket Play Cafe was born from one belief — Patna City deserved a place where
+                you could actually unwind, not just eat and leave. {brand.owner} set out to
+                build exactly that: a lounge where the food is as serious as the games.
+              </p>
+              <p className="text-text-body leading-relaxed">
+                From curating the menu to picking every console and cue stick, everything
+                here is personal. Drop by and you&apos;ll likely find Sunny at the counter,
+                making sure every guest leaves with a story to tell.
+              </p>
+            </Reveal>
+            <Reveal delay={120} className="relative flex justify-center">
+              <div className="absolute w-72 h-72 bg-gold/5 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-[80px]" />
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <clipPath id="ownerSectionBlob" clipPathUnits="objectBoundingBox">
+                      <path d="M0.5,0 C0.7,0,0.85,0.12,0.92,0.28 C0.99,0.44,1,0.62,0.95,0.78 C0.9,0.94,0.78,1,0.62,0.97 C0.46,0.94,0.28,0.9,0.16,0.78 C0.04,0.66,-0.02,0.5,0.02,0.35 C0.06,0.2,0.18,0.08,0.34,0.02 C0.5,-0.04,0.3,0,0.5,0Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div
+                  className="absolute inset-0 border-2 border-gold/30"
+                  style={{ clipPath: 'url(#ownerSectionBlob)' }}
+                />
+                <div
+                  className="absolute inset-[3px] overflow-hidden"
+                  style={{ clipPath: 'url(#ownerSectionBlob)' }}
+                >
+                  <img
+                    src="/owner/1f5ef596-f0df-4f80-9aae-d8d18650cbf9.jpeg"
+                    alt={brand.owner}
+                    className="w-full h-full object-cover scale-110"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
@@ -211,7 +269,7 @@ export default function AboutPage() {
                   <h3 className="heading text-lg text-white">Call / WhatsApp</h3>
                 </div>
                 <a
-                  href={brand.phoneHref}
+                  href={brand.bookHref}
                   target="_blank"
                   rel="noopener"
                   className="inline-flex items-center gap-2 text-gold font-display font-bold text-lg hover:text-gold-light transition-colors"
@@ -228,7 +286,7 @@ export default function AboutPage() {
               Tap to message us on WhatsApp — quickest way to reserve your spot.
             </p>
             <a
-              href={brand.phoneHref}
+              href={brand.bookHref}
               target="_blank"
               rel="noopener"
               className="inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"
@@ -265,11 +323,11 @@ export default function AboutPage() {
       <section className="py-20 px-4 sm:px-6">
         <div className="container-lux">
           <Reveal className="text-center border border-gold/20 bg-pp-card rounded-md p-10 sm:p-14">
-            <h2 className="heading text-3xl sm:text-4xl mb-4">Come Hang With Us</h2>
-            <p className="text-text-body max-w-lg mx-auto mb-8">Find us at Trimurti Chowk, or book a table in a tap.</p>
+            <h2 className="heading text-3xl sm:text-4xl mb-4">See You At Trimurti Chowk</h2>
+            <p className="text-text-body max-w-lg mx-auto mb-8">We&apos;re open every day from 10 AM. Book a table or just walk in.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={brand.phoneHref}
+                href={brand.bookHref}
                 target="_blank"
                 rel="noopener"
                 className="press lift w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"

@@ -32,7 +32,7 @@ export default function GamePage() {
 <h1 className="heading lift text-4xl sm:text-5xl md:text-6xl mb-4">Play. Compete. Repeat.</h1>
           <p className="text-text-body leading-relaxed lift">
             From a professional pool table to next-gen consoles, Pocket Play Cafe is built for
-            players. Grab your crew, pick a game, and let the good times roll.
+            players. Grab your crew, pick a game, and settle in for the evening.
           </p>
           </Reveal>
         </div>
@@ -66,7 +66,7 @@ export default function GamePage() {
                   <div className="flex items-center justify-between">
                     <div className="font-display font-bold text-xl text-gold">{g.price}</div>
                     <a
-                      href={brand.phoneHref}
+                      href={brand.gameBookHref(g.title)}
                       target="_blank"
                       rel="noopener"
                       className="inline-flex items-center gap-2 bg-gold text-pp-black font-bold uppercase text-xs tracking-wide rounded-md px-5 py-2.5 transition-[transform,background-color,box-shadow,border-color] duration-300 hover:bg-gold-light"
@@ -126,7 +126,7 @@ export default function GamePage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={brand.phoneHref}
+                href={brand.bookHref}
                 target="_blank"
                 rel="noopener"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold text-pp-black font-bold uppercase tracking-wide rounded-md px-9 py-4 transition-[transform,background-color,box-shadow,border-color] duration-300 gold-glow-lg hover:bg-gold-light"

@@ -1,6 +1,7 @@
 'use client'
 
 import { memo, useState } from 'react'
+import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { useCart } from '../cart/CartContext'
@@ -11,7 +12,6 @@ export type MenuCardData = {
   image?: string
   desc?: string
   badge?: 'bestseller' | 'new' | 'spicy' | 'chef'
-  rating?: number
   featured?: boolean
 }
 
@@ -71,10 +71,11 @@ function MenuCardImpl({ data }: { data: MenuCardData }) {
         )}
 
         {data.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={data.image}
             alt={`${data.item} at Pocket Play Cafe`}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             loading="lazy"
             decoding="async"
             className="menu-card-img"
@@ -91,14 +92,6 @@ function MenuCardImpl({ data }: { data: MenuCardData }) {
       <div className="menu-card-body">
         <h3 className="menu-card-name">{data.item}</h3>
         {data.desc && <p className="menu-card-desc">{data.desc}</p>}
-        {data.rating != null && (
-          <span className="menu-card-rating">
-            <svg className="star w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.4 6.8L12 17.8 5.9 20.5l1.4-6.8L2.2 9l6.9-.7z" />
-            </svg>
-            {data.rating.toFixed(1)}
-          </span>
-        )}
 
         <div className="menu-card-foot">
           <span className="menu-card-price">{data.price}</span>

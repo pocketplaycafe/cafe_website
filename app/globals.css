@@ -17,9 +17,11 @@
   --color-red-light: #E74C3C;
 
   /* ===== Text ===== */
+  /* text-muted is kept at >= #8A8A8A so it clears WCAG AA (4.5:1) on the
+     #0F0F0F background. Previously #666666 (~2.3:1) failed AA. */
   --color-text-primary: #FFFFFF;
-  --color-text-body: #B0B0B0;
-  --color-text-muted: #666666;
+  --color-text-body: #B8B8B8;
+  --color-text-muted: #8A8A8A;
 
   /* ===== Fonts (next/font exposes --font-oswald / --font-lato) =====
      Oswald is a condensed display sans — brand-appropriate for luxury caps.
@@ -192,7 +194,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(36px);
-  transition: opacity .6s var(--ease-lux), transform .6s var(--ease-lux);
+  transition: opacity .45s var(--ease-lux), transform .45s var(--ease-lux);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -367,16 +369,20 @@
    CAFE MENU REDESIGN — premium restaurant experience
    Palette scoped to .menu-page so the rest of the site is untouched.
    ============================================================ */
+/* Scoped overrides for the Menu experience. The menu intentionally reads a
+   touch softer than the lounge pages, but it reuses the SAME gold, background
+   family and (closer) radius as the rest of the site so the two most-visited
+   pages feel like one product. */
 .menu-page {
-  --m-gold: #F5C542;
-  --m-gold-soft: rgba(245,197,66,.14);
-  --m-bg: #0F0F10;
-  --m-card: #1A1A1C;
-  --m-card-2: #202023;
+  --m-gold: #D4AF37;
+  --m-gold-soft: rgba(212,175,55,.14);
+  --m-bg: #0F0F0F;
+  --m-card: #1A1A1A;
+  --m-card-2: #252525;
   --m-text: #F8F8F8;
   --m-muted: #A0A0A0;
-  --m-border: rgba(245,197,66,.14);
-  --m-radius: 20px;
+  --m-border: rgba(212,175,55,.14);
+  --m-radius: 12px;
   background: var(--m-bg);
   color: var(--m-text);
 }
@@ -469,15 +475,18 @@
   color: #0F0F10;
 }
 
-/* ----- Sticky category nav ----- */
+/* ----- Sticky category nav -----
+   Offset below the global fixed navbar (h-16 = 64px on mobile,
+   h-20 = 80px from sm up) so the two bars never overlap. */
 .menu-sticky {
   position: sticky;
-  top: 0;
+  top: 64px;
   z-index: 40;
   background: rgba(15,15,16,.82);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--m-border);
 }
+@media (min-width: 640px) { .menu-sticky { top: 80px; } }
 .menu-sticky-inner {
   display: flex;
   gap: 0.4rem;
@@ -598,7 +607,8 @@
   height: 100%;
   object-fit: cover;
   opacity: .95;
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
   transition: transform .3s var(--ease-lux), opacity .3s var(--ease-lux);
 }
@@ -670,16 +680,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.menu-card-rating {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--m-text);
-  margin-top: 8px;
-}
-.menu-card-rating .star { color: var(--m-gold); }
 .menu-card-foot {
   margin-top: auto;
   padding-top: 14px;

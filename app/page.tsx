@@ -169,32 +169,32 @@ export default function HomePage() {
           <Reveal className="relative overflow-hidden rounded-md border border-gold/20 bg-pp-card p-10 sm:p-16 text-center">
             <div className="absolute -top-20 -right-20 w-72 h-72 bg-gold/10 rounded-full blur-[120px]" />
             <div className="absolute inset-0 pattern-gold opacity-30" />
-            <div className="relative">
-              <h2 className="heading text-3xl sm:text-4xl md:text-5xl mb-4">
-                Hungry To Play?
-              </h2>
-              <p className="text-text-body max-w-lg mx-auto mb-8">
-                Book a table, rally your friends, and order from a menu made for gamers.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={brand.phoneHref}
-                  target="_blank"
-                  rel="noopener"
-                  className="btn btn-primary w-full sm:w-auto"
-                >
-                  <span className="cue-dot" aria-hidden="true" />
-                  Book a Table
-                </a>
-                <Link href="/cafe" className="btn btn-ghost w-full sm:w-auto">
-                  See Full Menu
-                </Link>
-              </div>
-              <p className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-text-muted">
-                <Star className="w-4 h-4 text-gold" fill="currentColor" />
-                Rated Patna&apos;s favourite gaming lounge
-              </p>
-            </div>
+              <div className="relative">
+               <h2 className="heading text-3xl sm:text-4xl md:text-5xl mb-4">
+                 Game On. Eat Well.
+               </h2>
+               <p className="text-text-body max-w-lg mx-auto mb-8">
+                 Grab your crew, pick a table, and order from a menu built for people who actually play.
+               </p>
+               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                 <a
+                   href={brand.bookHref}
+                   target="_blank"
+                   rel="noopener"
+                   className="btn btn-primary w-full sm:w-auto"
+                 >
+                   <span className="cue-dot" aria-hidden="true" />
+                   Book a Table
+                 </a>
+                 <Link href="/cafe" className="btn btn-ghost w-full sm:w-auto">
+                   See Full Menu
+                 </Link>
+               </div>
+               <p className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-text-muted">
+                 <Star className="w-4 h-4 text-gold" fill="currentColor" />
+                 Open daily · 10 AM to 11 PM · Trimurti Chowk
+               </p>
+             </div>
           </Reveal>
         </div>
       </section>

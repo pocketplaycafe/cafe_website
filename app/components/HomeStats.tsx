@@ -4,10 +4,10 @@ import CountUp from './CountUp'
 import Reveal from './Reveal'
 
 const stats = [
-  { to: 7, suffix: '+', label: 'Gaming Experiences' },
-  { to: 50, suffix: '+', label: 'Menu Items' },
+  { to: 7, suffix: '+', label: 'Ways To Play' },
+  { to: 50, suffix: '+', label: 'Dishes On The Menu' },
   { to: 2, suffix: '', label: 'Current-Gen Consoles' },
-  { to: 12, suffix: 'k+', label: 'Happy Guests' },
+  { to: 10, suffix: '', label: 'Open Till 11 PM' },
 ]
 
 export default function HomeStats() {
